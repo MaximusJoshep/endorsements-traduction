@@ -1,0 +1,34 @@
+.endorse-result {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.json-viewer {
+  max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+.result-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.copy-btn {
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.copy-btn:hover {
+  background: #229954;
+}
+

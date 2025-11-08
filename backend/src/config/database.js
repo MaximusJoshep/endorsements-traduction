@@ -1,0 +1,20 @@
+require('reflect-metadata');
+const { DataSource } = require('typeorm');
+const path = require('path');
+
+const AppDataSource = new DataSource({
+  type: 'postgres',
+  host: process.env.DB_HOST || 'localhost',
+  port: parseInt(process.env.DB_PORT) || 5432,
+  username: process.env.DB_USERNAME || 'postgres',
+  password: process.env.DB_PASSWORD || 'admin',
+  database: process.env.DB_DATABASE || 'endorse_db',
+  synchronize: process.env.NODE_ENV === 'development',
+  logging: process.env.NODE_ENV === 'development',
+  entities: [path.join(__dirname, '../models/**/*.js')],
+  migrations: [path.join(__dirname, '../migrations/**/*.js')],
+  subscribers: [path.join(__dirname, '../subscribers/**/*.js')],
+});
+
+module.exports = AppDataSource;
+
